@@ -136,7 +136,7 @@ console.log(jobPosition());
                 async showOnProfile() {
                     const username = 'slepyz';
                     const apiUrl = `https://api.github.com/users/${username}`;
-                    const token = 'MY_SECRET_TOKEN';
+                    const token = process.env.MY_SECRET_TOKEN;
                     try {
                         const response = await fetch(apiUrl, {
                             headers: {
