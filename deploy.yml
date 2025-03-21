@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy HTML to GitHub Pages
 
 on:
   push:
@@ -13,19 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.MY_SECRET_TOKEN }}
-          publish_dir: ./dist  # เปลี่ยนเป็นโฟลเดอร์ที่เก็บไฟล์ static
+          github_token: ${{ secrets.MY_SECRET_TOKEN }}  # ใช้ PAT จาก GitHub Secrets
+          publish_dir: ./  # ใช้ root directory ของ repository
